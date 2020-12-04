@@ -1,6 +1,5 @@
 class PolyTreeNode
     attr_reader :value, :parent, :children
-    attr_writer :children
 
     def initialize(value)
         @value = value
@@ -31,32 +30,26 @@ class PolyTreeNode
     def dfs(target_value)
 
         return self if self.value == target_value
-        return nil if self.children.empty?
-        answer = nil
 
         self.children.each do |child|
-            child_result = dfs(child)
-            if child_result != nil
-                answer = child_result
-            end
+            child_result = child.dfs(target_value)
+            return child_result if child_result != nil
         end
 
-        answer
+        nil
     end
+
+    def bfs(target_value)
+
+        queue = [self]
+
+        until queue.length == 0
+            first_node = queue.shift
+            return first_node if first_node.value == target_value
+            first_node.children.each { |child| queue << child }
+        end
+
+        nil
+    end
+
 end
-
-# n1 = PolyTreeNode.new("root1")
-# n2 = PolyTreeNode.new("root2")
-# n3 = PolyTreeNode.new("root3")
-
-# # connect n3 to n1
-# n3.parent = n1
-# # connect n3 to n2
-# n3.parent = n2
-
-# # this should work
-# raise "Bad parent=!" unless n3.parent == n2
-# raise "Bad parent=!" unless n2.children == [n3]
-
-# # this probably doesn't
-# raise "Bad parent=!" unless n1.children == []
