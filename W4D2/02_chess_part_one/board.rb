@@ -6,11 +6,13 @@ class Board
     end
 
     def [](pos)
-
+        row, col = pos
+        @rows[row][col]
     end
 
     def []=(pos, val)
-
+        row, col = pos
+        @rows[row][col] = val
     end
 
     def move_piece(start_pos, end_pos)
@@ -22,9 +24,23 @@ end
 
 
 class Piece
+    attr_reader :color, :pos
 
-    def initialize
-        @piece = "P"
+    def initialize(color, board, pos)
+        @color = color
+        @board = board
+        @pos = pos
+    end
+
+    def to_s
+        @color + self.to_s 
+    end
+
+    def empty?
+    end
+
+    def valid_moves
+        #return the array of valid moves
     end
 end
 
