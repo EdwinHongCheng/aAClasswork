@@ -36,11 +36,12 @@ class Piece
         @color + self.to_s 
     end
 
-    def empty?
+    def empty? # if this is a null piece or not (false if not a Null piece)
+        self.is_a?(NullPiece)
     end
 
-    def valid_moves
-        #return the array of valid moves
+    def valid_moves #return the array of valid move pos
+
     end
 end
 
@@ -48,6 +49,68 @@ end
 class NullPiece < Piece
 
     def initialize
-        @null_piece = "X"
+        @null_piece = "X" #placeholder code - delete later
     end
 end
+
+
+class Rook < Piece
+    def initialize(color, board, pos)
+        super
+        @symbol = "R"
+    end
+
+    private
+    def move_dirs
+
+    end
+end
+
+module Slideable
+    HORIZONTAL_DIRS = []
+    DIAGONAL_DIRS = []
+
+    def horizontal_dirs
+    end
+
+
+    def diagonal_dirs
+    end
+
+    
+    def moves
+    end
+
+    private
+    def move_dirs
+    end
+
+    def grow_unblocked_moves_in_dir(dx, dy)
+        
+    end
+end
+
+
+
+class Bishop < Piece
+end
+
+
+class Queen < Piece
+end
+
+
+class Knight < Piece
+end
+
+class King < Piece
+end
+
+
+class Pawn < Piece
+end
+
+
+
+
+
