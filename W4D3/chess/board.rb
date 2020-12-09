@@ -19,21 +19,21 @@ class Board
     def set_board
         # Blue Pieces
         @rows[0].each_with_index do |rook, idx|
-            @rows[0][idx] = Rook.new("blue", self, [0, idx])
+            @rows[0][idx] = Queen.new("blue", self, [0, idx])
         end
 
         @rows[1].each_with_index do |rook, idx|
-            @rows[1][idx] = Rook.new("blue", self, [1, idx])
+            @rows[1][idx] = Queen.new("blue", self, [1, idx])
         end
 
 
         # Red Pieces
         @rows[6].each_with_index do |rook, idx|
-            @rows[6][idx] = Rook.new("red", self, [6, idx])
+            @rows[6][idx] = Queen.new("red", self, [6, idx])
         end
 
         @rows[7].each_with_index do |rook, idx|
-            @rows[7][idx] = Rook.new("red", self, [7, idx])
+            @rows[7][idx] = Queen.new("red", self, [7, idx])
         end
     end
 

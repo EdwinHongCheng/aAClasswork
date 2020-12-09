@@ -39,7 +39,7 @@ module Slideable
                     break
                 else # opposite color's piece
                     all_good_moves << pos
-                    break  # check if one_dir_set = [] works too (making it an empty array)
+                    break
                 end
             end
         end
@@ -60,7 +60,7 @@ module Slideable
     #    debugger
 
        i = current_pos[0] + dx
-       j = current_pos[0] + dy
+       j = current_pos[1] + dy
        while (i >= 0 && i <= 7) && (j >= 0 && j <= 7)
         new_pos = [i, j]
         all_unblocked_moves << new_pos
@@ -69,5 +69,20 @@ module Slideable
        end
 
        all_unblocked_moves
+    end
+
+end
+
+
+module Steppable
+
+    def moves
+
+    end
+
+    private
+
+    def move_diffs
+
     end
 end

@@ -54,12 +54,15 @@ end
 
 
 class Bishop < Piece
+    include Slideable
+    attr_reader :symbol 
+
     def initialize(color, board, pos)
         super
         @symbol = :B
     end
 
-      private
+    private
     def move_dirs
         diagonal_dirs
     end
@@ -67,12 +70,15 @@ end
 
 
 class Queen < Piece
+    include Slideable
+    attr_reader :symbol
+
     def initialize(color, board, pos)
         super
         @symbol = :Q
     end
 
-      private
+    private
     def move_dirs
         horizontal_dirs + diagonal_dirs
     end
@@ -84,12 +90,22 @@ class Knight < Piece
         super
         @symbol = :N
     end
+
+    private
+    def move_diffs
+        moves = [ [1,2], [1,-2], [-1,2], [-1,-2, [2,1], [2,-1], [-2,1], [-2,-1] ]
+    end
 end
 
 class King < Piece
     def initialize(color, board, pos)
         super
         @symbol = :K
+    end
+
+    private
+    def move_diffs
+
     end
 end
 
