@@ -63,7 +63,7 @@ class Board
         raise "piece cannot move to #{end_pos}" if self[start_pos].color == self[end_pos].color
 
         self[end_pos] = self[start_pos].dup
-        self[start_pos] = @null_piece # this might change if we make NullPiece singleton
+        self[start_pos] = @null_piece
     end
 end
 
@@ -71,8 +71,4 @@ end
 board = Board.new
 board.render
 
-# board.set_board
 
-# p board
-# board.move_piece([0,0], [7,7])
-# p board
