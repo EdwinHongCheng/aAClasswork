@@ -44,7 +44,7 @@ class Rook < Piece
 
     private
     def move_dirs
-
+        horizontal_dirs
     end
 end
 
@@ -54,6 +54,11 @@ class Bishop < Piece
         super
         @symbol = :B
     end
+
+      private
+    def move_dirs
+        diagonal_dirs
+    end
 end
 
 
@@ -61,6 +66,11 @@ class Queen < Piece
     def initialize(color, board, pos)
         super
         @symbol = :Q
+    end
+
+      private
+    def move_dirs
+        horizontal_dirs + diagonal_dirs
     end
 end
 

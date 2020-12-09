@@ -17,13 +17,19 @@ module Slideable
 
         current_pos = self.pos
 
-        queue = []
+        all_unblocked_moves = []
+        all_good_moves = []
 
-        horizontal_dirs.each_with_index do |dir, idx|
-            
-            horizontal_dirs.grow_unblocked_moves_in_dir(horizontal_dirs[idx][0], horizontal_dirs[idx][1]0
+        move_dirs.each do |dir|
+            dx, dy = dir
+            all_unblocked_moves << grow_unblocked_moves_in_dir(dx, dy)
         end
         
+        all_unblocked_moves.each do |pos|
+            
+        end
+
+        all_good_moves
     end
 
     private
@@ -32,14 +38,15 @@ module Slideable
 
     # Helper Method for #moves
     def grow_unblocked_moves_in_dir(dx, dy)
-        # check if position is within bounds vs nil
-        if (start_pos[0] > 7 || start_pos[0] < 0) || (start_pos[1] > 7 || start_pos[1] < 0)
-        if (end_pos[0] > 7 || end_pos[0] < 0) || (end_pos[1] > 7 || end_pos[1] < 0)
+       all_unblocked_moves = []
+        
+       current_pos = self.pos
+       while (current_pos[0] >= 0 && current_pos[0] <= 7) && (current_pos[1] >= 0 && current_pos[1] <= 7)
+        current_pos[0] += dx
+        current_pos[1] += dy
+        all_unblocked_moves << current_pos
+       end
 
-
-        raise "there is no piece at #{start_pos}" if self[start_pos].empty?
-        raise "piece cannot move to #{end_pos}" if self[start_pos].color == self[end_pos].color
-
-
+       all_unblocked_moves
     end
 end
