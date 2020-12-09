@@ -86,6 +86,9 @@ end
 
 
 class Knight < Piece
+    include Steppable
+    attr_reader :symbol
+
     def initialize(color, board, pos)
         super
         @symbol = :N
@@ -93,26 +96,29 @@ class Knight < Piece
 
     private
     def move_diffs
-        moves = [ [1,2], [1,-2], [-1,2], [-1,-2, [2,1], [2,-1], [-2,1], [-2,-1] ]
+        [ [1,2], [1,-2], [-1,2], [-1,-2, [2,1], [2,-1], [-2,1], [-2,-1] ]
     end
 end
 
-class King < Piece
-    def initialize(color, board, pos)
-        super
-        @symbol = :K
-    end
+# class King < Piece
+#     include Steppable
+#     attr_reader :symbol
 
-    private
-    def move_diffs
+#     def initialize(color, board, pos)
+#         super
+#         @symbol = :K
+#     end
 
-    end
-end
+#     private
+#     def move_diffs
+#         moves = [ [-1, -1,], [0, -1], [1, -1], [-1, 0], [1, 0], [-1, 1], [0, 1], [1, 1] ]
+#     end
+# end
 
 
-class Pawn < Piece
-    def initialize(color, board, pos)
-        super
-        @symbol = :p
-    end
-end
+# class Pawn < Piece
+#     def initialize(color, board, pos)
+#         super
+#         @symbol = :p
+#     end
+# end
