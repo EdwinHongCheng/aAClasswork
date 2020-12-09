@@ -9,9 +9,10 @@ class Piece
         @pos = pos
     end
 
-    def to_s
-        @color + self.to_s 
-    end
+  
+    # def to_s
+    #     @color + self.to_s 
+    # end
 
     def empty? # if this is a null piece or not (false if not a Null piece)
         self.is_a?(NullPiece)
@@ -25,15 +26,17 @@ end
 
 class NullPiece < Piece
     include Singleton
-
+    attr_reader :symbol
     def initialize
-        @null_piece = :X #placeholder code - delete late
+        @symbol = :X #placeholder code - delete late
     end
 end
 
 
 
 class Rook < Piece
+    attr_reader :symbol
+
     def initialize(color, board, pos)
         super
         @symbol = :R

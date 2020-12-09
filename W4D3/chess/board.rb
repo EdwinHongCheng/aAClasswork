@@ -37,6 +37,11 @@ class Board
         end
     end
 
+    def render
+        @rows.each do |row|
+            p row.map {|piece| piece.symbol}
+        end
+    end
 
     def [](pos)
         row, col = pos
@@ -64,7 +69,7 @@ end
 
 
 board = Board.new
-p board
+board.render
 
 # board.set_board
 
