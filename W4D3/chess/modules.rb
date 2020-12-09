@@ -77,12 +77,47 @@ end
 module Steppable
 
     def moves
+        all_good_moves = []
 
+        current_pos = self.pos
+        
+        move_diffs.each do |pos|
+            if @board[pos].is_a?(NullPiece)
+                all_good_moves << pos
+            elsif @board[pos].color == self.color
+                break
+            else # opposite color's piece
+                all_good_moves << pos
+                break
+            end
+        end
+
+        all_good_moves
     end
 
-    private
+    # def grow_unblocked_moves_in_diff(dx, dy) # example: 1, 0
+    #    all_unblocked_moves = []
+        
+    #    current_pos = self.pos.dup
 
+    
+
+    #    i = current_pos[0] + dx
+    #    j = current_pos[1] + dy
+    #    while (i >= 0 && i <= 7) && (j >= 0 && j <= 7)
+    #     new_pos = [i, j]
+    #     all_unblocked_moves << new_pos
+    #     i += dx
+    #     j += dy
+    #    end
+
+    #    all_unblocked_moves
+    # end
+
+    private
+    
     def move_diffs
 
     end
+    
 end
