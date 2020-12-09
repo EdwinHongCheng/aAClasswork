@@ -16,6 +16,10 @@ class Board
     end
 
     def move_piece(start_pos, end_pos)
+        # check if position is within bounds vs nil
+        raise "there is no piece at start pos" if self[start_pos].empty? || self[start_pos].nil?
+        raise "piece cannot move to end pos" if self[end_pos].nil?
+        
         # set piece at start_pos to end_pos
         # set start_pos to null_piece
         # raise if !valid_moves.include?(end_pos) # assuming valid_moves is an array for a certain piece
