@@ -1,3 +1,5 @@
+require "singleton"
+
 class Board
     attr_accessor :rows
 
@@ -17,12 +19,15 @@ class Board
 
     def move_piece(start_pos, end_pos)
         # check if position is within bounds vs nil
-        raise "there is no piece at start pos" if self[start_pos].empty? || self[start_pos].nil?
-        raise "piece cannot move to end pos" if self[end_pos].nil?
-        
-        # set piece at start_pos to end_pos
-        # set start_pos to null_piece
-        # raise if !valid_moves.include?(end_pos) # assuming valid_moves is an array for a certain piece
+        raise "#{start_pos} is out of bounds" if (start_pos[0] > 7 || start_pos[0] < 0) || (start_pos[1] > 7 || start_pos[1] < 0)
+        raise "#{end_pos} is out of bounds" if (end_pos[0] > 7 || end_pos[0] < 0) || (end_pos[1] > 7 || end_pos[1] < 0)
+
+
+        raise "there is no piece at #{start_pos}" if self[start_pos].empty?
+        raise "piece cannot move to #{end_pos}" if self[start_pos].color == self[end_pos].color
+
+        self[end_pos] = self[start_pos].dup
+        self[start_pos] = NullPiece.new
     end
 end
 
@@ -51,11 +56,13 @@ end
 
 
 class NullPiece < Piece
+    # include Singleton
 
     def initialize
-        @null_piece = "X" #placeholder code - delete later
+        @null_piece = "X" #placeholder code - delete late
     end
 end
+
 
 
 class Rook < Piece
@@ -90,7 +97,7 @@ module Slideable
     end
 
     def grow_unblocked_moves_in_dir(dx, dy)
-        
+
     end
 end
 
