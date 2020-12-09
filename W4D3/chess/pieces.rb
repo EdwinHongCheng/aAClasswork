@@ -1,7 +1,9 @@
 require "singleton"
+require_relative "modules"
 
 class Piece
     attr_reader :color, :pos
+    attr_accessor :board
 
     def initialize(color, board, pos)
         @color = color
@@ -35,6 +37,8 @@ end
 
 
 class Rook < Piece
+    include Slideable
+
     attr_reader :symbol
 
     def initialize(color, board, pos)

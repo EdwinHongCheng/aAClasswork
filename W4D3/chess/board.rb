@@ -70,5 +70,4 @@ end
 
 board = Board.new
 board.render
-
-
+p board[[1,0]].moves
