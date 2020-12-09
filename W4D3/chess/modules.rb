@@ -57,8 +57,6 @@ module Slideable
         
        current_pos = self.pos.dup
 
-    #    debugger
-
        i = current_pos[0] + dx
        j = current_pos[1] + dy
        while (i >= 0 && i <= 7) && (j >= 0 && j <= 7)
@@ -79,43 +77,55 @@ module Steppable
     def moves
         all_good_moves = []
 
-        current_pos = self.pos
+        current_pos = self.pos  # knight is at: [1, 0]
         
+
+
+        # move_diffs = [ [1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1] ]
+        # 1. first, add current position to move_diffs (8 movement possibilities)
+        # 2. then, filter out all out-of-bounds positions, (so if idx at 0, or 1 < 0, or > 7)
+
+        all_in_bound_moves = []
+
+        # move_diffs = [ [1,2], [1,-2], [-1,2], [-1,-2], [2,1], [2,-1], [-2,1], [-2,-1] ]
         move_diffs.each do |pos|
-            if @board[pos].is_a?(NullPiece)
+            dx, dy = pos
+            all_in_bound_moves += unblocked_move_in_diffs(dx, dy) # 1, 2
+        end
+
+
+        # 3. then, check board for remaning positions -> see if its same color, ignore if so
+        # if not same color, put into all_good_moves (aka our answers)
+        
+        all_in_bound_moves.each do |pos|
+            if @board[pos].color != self.color
                 all_good_moves << pos
-            elsif @board[pos].color == self.color
-                break
-            else # opposite color's piece
-                all_good_moves << pos
-                break
             end
         end
 
         all_good_moves
     end
 
-    # def grow_unblocked_moves_in_diff(dx, dy) # example: 1, 0
-    #    all_unblocked_moves = []
+    # Helper Method for #moves
+    def unblocked_move_in_diffs(dx, dy) # example: 1, 2
+        unblocked_move = []
         
-    #    current_pos = self.pos.dup
+        current_pos = self.pos.dup
 
-    
+        i = current_pos[0] + dx # current_pos[0] + 1
+        j = current_pos[1] + dy # current_pos[1] + 2
 
-    #    i = current_pos[0] + dx
-    #    j = current_pos[1] + dy
-    #    while (i >= 0 && i <= 7) && (j >= 0 && j <= 7)
-    #     new_pos = [i, j]
-    #     all_unblocked_moves << new_pos
-    #     i += dx
-    #     j += dy
-    #    end
+        if (i >= 0 && i <= 7) && (j >= 0 && j <= 7)
+            new_pos = [i, j]
+            unblocked_move << new_pos
+        end
 
-    #    all_unblocked_moves
-    # end
+        unblocked_move # in-bounds new position for knight
+    end
+
+
 
     private
-    
     def move_diffs
 
     end
