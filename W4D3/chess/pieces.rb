@@ -156,41 +156,32 @@ class Pawn < Piece
         moves_to_examine = []
 
 
-        # bugs here - just have to change the filters, etc to make this work
-        # aka: filter out bad positions (out of bounds ones)
-        # SO CLOSE !!!!!
-        if color == "white"
-            i, j = current_pos
-            if (i + 1 < 0 || i + 1 > 7) || (j - 1 < 0 || j - 1 > 7) # this takes out both, even if one pos is valid
-                moves_to_examine << [i + 1, j - 1]
-            end
+        # bugs here - fixed the filter for out-of-bounds, but it's not very DRY
+        i, j = current_pos
 
-            if (i + 1 < 0 || i + 1 > 7) || (j + 1 < 0 || j + 1 > 7) 
-                moves_to_examine << [i + 1, j + 1] 
-            end
+        if color == "white"
+
+            pos1 = [i + 1, j - 1]
+            pos2 = [i + 1, j + 1] 
+
+            moves_to_examine << pos1 if (pos1[0] >= 0 && pos1[0] <= 7) && (pos1[1] >= 0 && pos1[1] <= 7)
+            moves_to_examine << pos2 if (pos2[0] >= 0 && pos2[0] <= 7) && (pos2[1] >= 0 && pos2[1] <= 7)
             
         elsif color == "black"
-            i, j = current_pos
-            if (i - 1 < 0 || i - 1 > 7) || (j + 1 < 0 || j + 1 > 7) # this takes out both, even if one pos is valid
-                moves_to_examine << [i - 1, j + 1]
-            end
 
-            if (i - 1 < 0 || i - 1 > 7) || (j - 1 < 0 || j - 1 > 7)
-                moves_to_examine << [i - 1, j - 1]
-            end
+            pos1 = [i - 1, j + 1]
+            pos2 = [i - 1, j - 1]
+
+            moves_to_examine << pos1 if (pos1[0] >= 0 && pos1[0] <= 7) && (pos1[1] >= 0 && pos1[1] <= 7)
+            moves_to_examine << pos2 if (pos2[0] >= 0 && pos2[0] <= 7) && (pos2[1] >= 0 && pos2[1] <= 7)
         end
-
-        
 
         # if the piece at the board position is opposite color, move is valid
         # put it into good side attacks array
         moves_to_examine.each do |pos|
-
-            # might have issues here - check with debugger
             if @board[pos].color != self.color && !@board[pos].is_a?(NullPiece)
                 good_side_attacks << pos
             end
-            # debugger
         end
 
         good_side_attacks

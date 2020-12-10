@@ -26,10 +26,13 @@ class Board
             @rows[1][idx] = Pawn.new("white", self, [1, idx])
         end
         
+        # just had these white pieces at Row 5 to test pawn side attack
+        # can remove
         @rows[5].each_with_index do |piece, idx|
             @rows[5][idx] = Pawn.new("white", self, [5, idx])
         end
 
+        
         # Black Pieces
         
         @rows[6].each_with_index do |piece, idx|
