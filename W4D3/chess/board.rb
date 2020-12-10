@@ -25,9 +25,13 @@ class Board
         @rows[1].each_with_index do |piece, idx|
             @rows[1][idx] = Pawn.new("white", self, [1, idx])
         end
-
+        
+        @rows[5].each_with_index do |piece, idx|
+            @rows[5][idx] = Pawn.new("white", self, [5, idx])
+        end
 
         # Black Pieces
+        
         @rows[6].each_with_index do |piece, idx|
             @rows[6][idx] = Pawn.new("black", self, [6, idx])
         end
@@ -70,4 +74,4 @@ end
 
 board = Board.new
 board.render
-p board[[6,0]].moves
+p board[[5,0]].moves

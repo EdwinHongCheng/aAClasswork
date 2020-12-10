@@ -157,24 +157,29 @@ class Pawn < Piece
 
         if color == "white"
             i, j = current_pos
-            moves_to_examine << [i + 1, j + 1] 
-            moves_to_examine << [i + 1, j - 1]
+            if (i < 0 || i > 7) || (j < 0 || j > 7)
+                moves_to_examine << [i + 1, j - 1]
+                moves_to_examine << [i + 1, j + 1] 
+            end
         elsif color == "black"
             i, j = current_pos
-            moves_to_examine << [i - 1, j + 1] 
-            moves_to_examine << [i - 1, j - 1]
+            if (i < 0 || i > 7) || (j < 0 || j > 7)
+                moves_to_examine << [i - 1, j + 1] 
+                moves_to_examine << [i - 1, j - 1]
+            end
         end
 
-        # debugger
+        
 
         # if the piece at the board position is opposite color, move is valid
         # put it into good side attacks array
         moves_to_examine.each do |pos|
 
             # might have issues here - check with debugger
-            if @board[pos].color == !self.color # && !@board[pos].is_a?(NullPiece)
+            if @board[pos].color != self.color && !@board[pos].is_a?(NullPiece)
                 good_side_attacks << pos
             end
+            # debugger
         end
 
         good_side_attacks
