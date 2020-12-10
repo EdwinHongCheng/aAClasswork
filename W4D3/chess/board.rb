@@ -17,23 +17,23 @@ class Board
 
     # Helper Method
     def set_board
-        # Blue Pieces
+        # White Pieces
         @rows[0].each_with_index do |piece, idx|
-            @rows[0][idx] = King.new("blue", self, [0, idx])
+            @rows[0][idx] = Pawn.new("white", self, [0, idx])
         end
 
         @rows[1].each_with_index do |piece, idx|
-            @rows[1][idx] = King.new("blue", self, [1, idx])
+            @rows[1][idx] = Pawn.new("white", self, [1, idx])
         end
 
 
-        # Red Pieces
+        # Black Pieces
         @rows[6].each_with_index do |piece, idx|
-            @rows[6][idx] = King.new("red", self, [6, idx])
+            @rows[6][idx] = Pawn.new("black", self, [6, idx])
         end
 
         @rows[7].each_with_index do |piece, idx|
-            @rows[7][idx] = King.new("red", self, [7, idx])
+            @rows[7][idx] = Pawn.new("black", self, [7, idx])
         end
     end
 
@@ -70,4 +70,4 @@ end
 
 board = Board.new
 board.render
-p board[[1,0]].moves
+p board[[6,0]].moves

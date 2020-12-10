@@ -1,5 +1,6 @@
 require "singleton"
 require_relative "modules"
+require "byebug"
 
 class Piece
     attr_reader :color, :pos
@@ -124,11 +125,11 @@ class Pawn < Piece
     end
     
     def moves
-
+        side_attacks # placeholder for testing (to access the private method)
     end
 
     private
-    def at_start_row?
+    def at_start_row? # checked - working
         if color == "white" && pos[0] == 1
             true
         elsif color == "black" && pos[0] == 6
@@ -146,11 +147,12 @@ class Pawn < Piece
         end
     end
 
-    def side_attacks
+    def side_attacks # WIP - has bugs
 
         good_side_attacks = []
 
-        current_pos == self.pos
+        current_pos = self.pos
+
         moves_to_examine = []
 
         if color == "white"
@@ -163,11 +165,19 @@ class Pawn < Piece
             moves_to_examine << [i - 1, j - 1]
         end
 
-        # if the piece is opposite color, move is valid
+        # debugger
+
+        # if the piece at the board position is opposite color, move is valid
         # put it into good side attacks array
+        moves_to_examine.each do |pos|
+
+            # might have issues here - check with debugger
+            if @board[pos].color == !self.color # && !@board[pos].is_a?(NullPiece)
+                good_side_attacks << pos
+            end
+        end
 
         good_side_attacks
-
     end
 
 end
