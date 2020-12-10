@@ -155,16 +155,27 @@ class Pawn < Piece
 
         moves_to_examine = []
 
+
+        # bugs here - just have to change the filters, etc to make this work
+        # aka: filter out bad positions (out of bounds ones)
+        # SO CLOSE !!!!!
         if color == "white"
             i, j = current_pos
-            if (i < 0 || i > 7) || (j < 0 || j > 7)
+            if (i + 1 < 0 || i + 1 > 7) || (j - 1 < 0 || j - 1 > 7) # this takes out both, even if one pos is valid
                 moves_to_examine << [i + 1, j - 1]
+            end
+
+            if (i + 1 < 0 || i + 1 > 7) || (j + 1 < 0 || j + 1 > 7) 
                 moves_to_examine << [i + 1, j + 1] 
             end
+            
         elsif color == "black"
             i, j = current_pos
-            if (i < 0 || i > 7) || (j < 0 || j > 7)
-                moves_to_examine << [i - 1, j + 1] 
+            if (i - 1 < 0 || i - 1 > 7) || (j + 1 < 0 || j + 1 > 7) # this takes out both, even if one pos is valid
+                moves_to_examine << [i - 1, j + 1]
+            end
+
+            if (i - 1 < 0 || i - 1 > 7) || (j - 1 < 0 || j - 1 > 7)
                 moves_to_examine << [i - 1, j - 1]
             end
         end
