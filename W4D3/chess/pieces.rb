@@ -116,9 +116,58 @@ class King < Piece
 end
 
 
-# class Pawn < Piece
-#     def initialize(color, board, pos)
-#         super
-#         @symbol = :p
-#     end
-# end
+class Pawn < Piece
+    attr_reader :symbol 
+    def initialize(color, board, pos)
+        super
+        @symbol = :p
+    end
+    
+    def moves
+
+    end
+
+    private
+    def at_start_row?
+        if color == "white" && pos[0] == 1
+            true
+        elsif color == "black" && pos[0] == 6
+            true
+        else
+            false
+        end
+    end
+
+    def forward_dir
+        if color == "white" 
+            return 1
+        elsif color == "black"
+            return -1
+        end
+    end
+
+    def side_attacks
+
+        good_side_attacks = []
+
+        current_pos == self.pos
+        moves_to_examine = []
+
+        if color == "white"
+            i, j = current_pos
+            moves_to_examine << [i + 1, j + 1] 
+            moves_to_examine << [i + 1, j - 1]
+        elsif color == "black"
+            i, j = current_pos
+            moves_to_examine << [i - 1, j + 1] 
+            moves_to_examine << [i - 1, j - 1]
+        end
+
+        # if the piece is opposite color, move is valid
+        # put it into good side attacks array
+
+        good_side_attacks
+
+    end
+
+end
