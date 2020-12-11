@@ -37,20 +37,38 @@ end
 
 
 # Largest Contiguous Sub-sum
+# Phase 1 => O(n^2)
+
+# def largest_contiguous_subsum(arr)
+#     subarrs = []
+#     (0..arr.length - 1).each do |i|
+#         (i..arr.length - 1).each do |j|
+#             subarrs << arr[i..j]
+#         end
+#     end
+#     max = subarrs[0].sum
+#     subarrs.each do |sub|
+#         max = sub.sum if sub.sum > max
+#     end
+
+#     max
+# end
 
 def largest_contiguous_subsum(arr)
-    subarrs = []
-    (0..arr.length - 1).each do |i|
-        (i..arr.length - 1).each do |j|
-            subarrs << arr[i..j]
-        end
+    largest_sum = arr[0]
+    current_sum = arr[0]
+    (0...arr.length - 1).each do |i|
+        current_sum = arr[i]
+        largest_sum = current_sum if current_sum > largest_sum
+        current_sum = arr[i] + arr[i + 1]
+        largest_sum = current_sum if current_sum > largest_sum
     end
-    max = subarrs[0].sum
-    
-
-    subarrs
+    largest_sum
 end
 
-list = [5, 3, -7]
+
+
+# list = [5, 3, -7]
+list = [2, 3, -6, 7, -6, 7]
 p largest_contiguous_subsum(list)
 
