@@ -56,10 +56,42 @@
 #     merged + arr1 + arr2
 # end
 
+
 # Phase 4
 
-def anagram?(str1, str2)
+# Time Complexity: O(n)
 
+# def anagram?(str1, str2)
+#     hash_1 = Hash.new(0)
+#     hash_2 = Hash.new(0)
+
+#     str1.each_char do |char|
+#         hash_1[char] += 1
+#     end
+
+#     str2.each_char do |char|
+#         hash_2[char] += 1
+#     end
+
+#     hash_1 == hash_2
+# end
+
+
+# Bonus
+
+# Time Complexity: O(n)
+def anagram?(str1, str2)
+    hash = Hash.new(0)
+
+    str1.each_char do |char|
+        hash[char] += 1
+    end
+
+    str2.each_char do |char|
+        hash[char] -= 1
+    end
+    
+    hash.all? { |k, v| v == 0 } # O(1)
 end
 
 # # Tests
