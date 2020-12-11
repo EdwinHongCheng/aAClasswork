@@ -56,19 +56,25 @@ end
 
 def largest_contiguous_subsum(arr)
     largest_sum = arr[0]
-    current_sum = arr[0]
-    (0...arr.length - 1).each do |i|
-        current_sum = arr[i]
-        largest_sum = current_sum if current_sum > largest_sum
-        current_sum = arr[i] + arr[i + 1]
+    current_sum = 0
+    (0..arr.length - 1).each do |i|
+        if arr[i] + current_sum < 0
+            largest_sum = arr[i] if arr[i] > largest_sum
+            current_sum = 0
+            next
+        end
+
+        current_sum += arr[i]
         largest_sum = current_sum if current_sum > largest_sum
     end
     largest_sum
 end
 
 
+list1 = [5, 3, -7] #=> 8
+list2 = [2, 3, -6, 7, -6, 7] #=> 8
+list3 = [-2, -3, -1, -4] #=> -1
 
-# list = [5, 3, -7]
-list = [2, 3, -6, 7, -6, 7]
-p largest_contiguous_subsum(list)
-
+p largest_contiguous_subsum(list1)
+p largest_contiguous_subsum(list2)
+p largest_contiguous_subsum(list3)
