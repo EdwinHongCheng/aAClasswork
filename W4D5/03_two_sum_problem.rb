@@ -64,12 +64,11 @@ end
 # Okay two sum => O(n*log(n))
 
 def okay_two_sum?(arr, target_sum)
-    sorted_arr = merge_sort(arr) #O(n * log(n))
+    sorted_arr = merge_sort(arr) # O(n * log(n))
 
-    sorted_arr.each.with_index do |ele, i| #O(n * log(n))
+    sorted_arr.each.with_index do |ele, i| # O(n * log(n))
         diff = target_sum - ele
         next if diff == ele
-        # debugger
         return true if !sorted_arr.my_bsearch(diff).nil?
     end
 
@@ -78,5 +77,22 @@ end
 
 
 arr = [0, 1, 5, 7]
-p okay_two_sum?(arr, 6) # => should be true
-p okay_two_sum?(arr, 10) # => should be false
+# p okay_two_sum?(arr, 6) # => should be true
+# p okay_two_sum?(arr, 10) # => should be false
+
+
+# Hash Map Phase
+
+# two_sum Time Complexity: O(n)
+def two_sum?(arr, target_sum)
+    hash = {}
+    arr.each do |ele|
+        diff = target_sum - ele
+        return true if hash.has_key?(diff) # O(1), or constant time
+        hash[ele] = 0
+    end
+    false
+end
+
+# p two_sum?(arr, 6) # => should be true
+# p two_sum?(arr, 10) # => should be false
