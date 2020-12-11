@@ -10,8 +10,6 @@ def bad_two_sum?(arr, target_sum)
     false
 end
 
-arr = [0, 1, 5, 7]
-
 # p bad_two_sum?(arr, 6) # => should be true
 # p bad_two_sum?(arr, 10) # => should be false
 
@@ -63,18 +61,22 @@ def merge(arr1, arr2)
     merged + arr1 + arr2
 end
 
+# Okay two sum => O(n*log(n))
 
 def okay_two_sum?(arr, target_sum)
-    sorted_arr = merge_sort(arr)
+    sorted_arr = merge_sort(arr) #O(n * log(n))
 
-    sorted_arr.each do |ele|
+    sorted_arr.each.with_index do |ele, i| #O(n * log(n))
         diff = target_sum - ele
-        debugger
+        next if diff == ele
+        # debugger
         return true if !sorted_arr.my_bsearch(diff).nil?
     end
 
     false
 end
 
+
+arr = [0, 1, 5, 7]
 p okay_two_sum?(arr, 6) # => should be true
 p okay_two_sum?(arr, 10) # => should be false
