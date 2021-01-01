@@ -1,0 +1,20 @@
+<h1>Form to create a user</h1>
+
+<form action="<%=cats_url%>" method="POST">
+
+    <label>Name:
+        <input type="text" name="cat[name]" value="<%= @cat.name %>" />
+    </label>
+    <br>
+
+    <!-- Sex - Radio Buttons - not sure -->
+    <label>Sex:
+        <input type="radio" name="cat[sex]" value="M">
+        <label for="male"><%= M %></label><br>
+
+        <input type="radio" name="cat[sex]" value="F">
+        <label for="female"><%= F %></label><br>
+    </label>
+    <br>
+
+</form>
