@@ -1,17 +1,18 @@
 <h1>This shows a single cat</h1>
 
-<ul>
-    <li>Name: <%= @cat.name %></li>
-    <br>
-    <li>Birth Date: <%= @cat.birth_date %></li>
-    <br>
-    <li>Color: <%= @cat.color %></li>
-    <br>
-    <li>Sex: <%= @cat.sex %></li>
-</ul>
 
-<br>
 
-<p>
-    Description: <%= @cat.description %>
-</p>
+<h1><%= @cat.name %></h1>
+
+<table>
+  <tr>
+    <th>Attribute</th>
+    <th>Value</th>
+  </tr>
+  <% [:age, :birth_date, :color, :sex].each do |attr_name| %>
+    <tr>
+      <td><%= attr_name %></td>
+      <td><%= @cat.send(attr_name) %></td>
+    </tr>
+  <% end %>
+</table>
