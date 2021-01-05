@@ -16,7 +16,7 @@ class BandsController < ApplicationController
   end
 
   def create
-    @band = current_user.bands.new(band_params)
+    @band = Band.new(band_params)
     if @band.save
       redirect_to band_url(@band)
     else
@@ -26,12 +26,12 @@ class BandsController < ApplicationController
   end
 
   def edit
-    @band = current_user.bands.find(params[:id])
+    @band = Band.find(params[:id])
     render :edit
   end
 
   def update
-    @band = current_user.bands.find(params[:id])
+    @band = Band.find(params[:id])
     if @band.update_attributes(band_params)
       redirect_to band_url(@band)
     else
