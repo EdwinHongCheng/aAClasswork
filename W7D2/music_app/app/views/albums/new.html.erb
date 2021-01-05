@@ -1,0 +1,31 @@
+<section class="page">
+    <h1>New Album</h1>
+
+    <form action="<%= albums_url %>" method="post">
+
+    <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
+
+        <label for="album_title">Album Title</label>
+        <input type="text"
+          name="album[title]"
+          id="album_title"
+          value="<%= @album.title %>">
+        <br>
+
+        <label for="album_year">Album Year</label>
+        <input type="text"
+          name="album[year]"
+          id="album_year"
+          value="<%= @album.year %>">
+        <br>
+
+        <label for="album_live?">Live?</label>
+        <input type="text"
+          name="album[live?]"
+          id="album_live?"
+          value="<%= @album.live? %>">
+        <br>
+      
+        <input type="submit">
+    </form>
+</section>
