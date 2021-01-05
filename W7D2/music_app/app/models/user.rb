@@ -27,8 +27,8 @@ class User < ApplicationRecord
         @password = password 
     end
 
-    def self.find_by_credentials(username, pw)
-        user = User.find_by(username: username)   
+    def self.find_by_credentials(email, pw)
+        user = User.find_by(email: email)
 
         if user && user.is_password?(pw) #helper method
             user 
