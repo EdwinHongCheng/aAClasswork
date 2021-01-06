@@ -21,12 +21,30 @@
           value="<%= @album.year %>">
         <br>
 
+
+        <!-- Radio Buttons Don't Seem to Work -->
+
+        <!-- <input type="radio"
+          name="album[live?]"
+          id="album_live?_true"
+          <%= @album.live? == "true"? "checked": "" %>
+          >
+        <label for="album_live?">Live Album?</label>
+
+        <input type="radio"
+          name="album[live?]"
+          id="album_live?_true"
+          <%= @album.live? == "false"? "checked": "" %>
+          >
+          <label for="album_live?">Studio Album?</label>
+
+        <br> -->
+
         <label for="album_live?">Live?</label>
         <input type="text"
           name="album[live?]"
           id="album_live?"
           value="<%= @album.live? %>">
-        <br>
       
         <input type="submit">
     </form>

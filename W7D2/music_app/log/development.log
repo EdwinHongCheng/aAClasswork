@@ -4844,3 +4844,559 @@ Processing by AlbumsController#show as HTML
 Completed 200 OK in 35ms (Views: 30.8ms | ActiveRecord: 1.3ms)
 
 
+Started GET "/albums/1" for ::1 at 2021-01-05 16:50:34 -0800
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/edwinhong/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (12.5ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+Completed 404 Not Found in 66ms (ActiveRecord: 25.7ms)
+
+
+  
+ActiveRecord::RecordNotFound (Couldn't find Album with 'id'=1):
+  
+app/controllers/albums_controller.rb:24:in `show'
+Started POST "/albums" for ::1 at 2021-01-05 16:50:47 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"K3rF6Koe82IPetuBgjs54hYa/NPs80kucFSJI6nzVbca1Qx4lz9pKJNM7NdnBHOywANazQuIO9vCAPyvcvGGrg==", "album"=>{"title"=>"black", "year"=>"2020", "live?"=>"on"}}
+  [1m[35m (7.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (2.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (2.6ms)
+  [1m[36mUser Load (1.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 934ms (Views: 847.0ms | ActiveRecord: 18.2ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:51:53 -0800
+  [1m[35m (1.9ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/edwinhong/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"K3rF6Koe82IPetuBgjs54hYa/NPs80kucFSJI6nzVbca1Qx4lz9pKJNM7NdnBHOywANazQuIO9vCAPyvcvGGrg==", "album"=>{"title"=>"black", "year"=>"2020", "live?"=>"on"}}
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (1.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+Started POST "/albums" for ::1 at 2021-01-05 16:52:43 -0800
+  [1m[35m (1.1ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/edwinhong/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#create as HTML
+  Parameters: {"authenticity_token"=>"K3rF6Koe82IPetuBgjs54hYa/NPs80kucFSJI6nzVbca1Qx4lz9pKJNM7NdnBHOywANazQuIO9vCAPyvcvGGrg==", "album"=>{"title"=>"black", "year"=>"2020", "live?"=>"on"}}
+  [1m[35m (1.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (0.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (145580.0ms)
+Completed 500 Internal Server Error in 145686ms (ActiveRecord: 12.6ms)
+
+
+  
+SystemExit (exit):
+  
+(byebug):1:in `exit'
+(byebug):1:in `_app_views_albums_new_html_erb__964927599436351526_70345448341960'
+app/views/albums/new.html.erb:5:in `_app_views_albums_new_html_erb__964927599436351526_70345448341960'
+app/controllers/albums_controller.rb:19:in `create'
+Started GET "/bands/1/albums/new" for ::1 at 2021-01-05 16:55:32 -0800
+  [1m[35m (1.6ms)[0m  [1m[34mSELECT "schema_migrations"."version" FROM "schema_migrations" ORDER BY "schema_migrations"."version" ASC[0m
+  ↳ /Users/edwinhong/.rbenv/versions/2.5.1/lib/ruby/gems/2.5.0/gems/activerecord-5.2.4.4/lib/active_record/log_subscriber.rb:98
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"1"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (24.9ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 665ms (Views: 581.4ms | ActiveRecord: 30.0ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:55:38 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"black", "year"=>"2020", "live?"=>"true"}, "authenticity_token"=>"ifBKKTOGJwBddug6JVgtPN2I7WkdotCcLQRinPLZA9q4X4O5Dqe9SsFA32zAZ2dsC5FLd/rZommfUBcQKdvQww=="}
+  [1m[35m (1.6ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (3.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mAlbum Create (20.3ms)[0m  [1m[32mINSERT INTO "albums" ("title", "year", "band_id", "created_at", "updated_at", "live?") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "black"], ["year", 2020], ["band_id", 1], ["created_at", "2021-01-06 00:55:38.237122"], ["updated_at", "2021-01-06 00:55:38.237122"], ["live?", true]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (9.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:15
+Redirected to http://localhost:3000/albums/1
+Completed 302 Found in 105ms (ActiveRecord: 45.4ms)
+
+
+Started GET "/albums/1" for ::1 at 2021-01-05 16:55:38 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (7.1ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (7.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (12.0ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 177ms (Views: 151.7ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/bands/1/albums/new" for ::1 at 2021-01-05 16:55:52 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"1"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (3.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 219ms (Views: 217.4ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:56:03 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"pink", "year"=>"2021", "live?"=>"false"}, "authenticity_token"=>"vBfDNfhu/A4OaUoKLGUYsAuwNtkHWjX0RG9jODPDXE2NuAqlxU9mRJJffVzJWlLg3amQx+AhRwH2Oxa06MGPVA=="}
+  [1m[35m (5.3ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (3.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (4.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 255ms (Views: 217.7ms | ActiveRecord: 13.6ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:56:35 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"", "title"=>"pink", "year"=>"2021", "live?"=>"true"}, "authenticity_token"=>"XL74RR3E1i1ZJpCD5RtLhv4sq4y6WcEwga3AVoEVKB9tETHVIOVMZ8UQp9UAJAHWKDUNkl0is8Uz+bXaWhf7Bg=="}
+  [1m[35m (8.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (3.9ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.1ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 245ms (Views: 218.2ms | ActiveRecord: 12.6ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:56:37 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"", "title"=>"pink", "year"=>"2021", "live?"=>"true"}, "authenticity_token"=>"LcDuPvmA1tpqeoo2enFrrzngCe5p1Aka0aFc9pcOcsEcbyeuxKFMkPZMvWCfTiH/7/mv8I6ve+9j9Sl6TAyh2A=="}
+  [1m[35m (4.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (2.2ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 194ms (Views: 176.8ms | ActiveRecord: 7.3ms)
+
+
+Started GET "/albums" for ::1 at 2021-01-05 16:56:39 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/albums"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/albums/1" for ::1 at 2021-01-05 16:56:53 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (0.8ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (4.2ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 210ms (Views: 202.0ms | ActiveRecord: 2.0ms)
+
+
+Started GET "/bands/1/albums/new" for ::1 at 2021-01-05 16:57:03 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"1"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.9ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 163ms (Views: 161.5ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:57:13 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"pink", "year"=>"2019", "live?"=>"true"}, "authenticity_token"=>"HQ6LPI/Q27dQHqFOMw3jEdFS72d9ID4tz21MQ2WDJMIsoUKssvFB/cwolhjWMqlBB0tJeZpbTNh9OTnPvoH32w=="}
+  [1m[35m (0.8ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (2.5ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mAlbum Create (3.9ms)[0m  [1m[32mINSERT INTO "albums" ("title", "year", "band_id", "created_at", "updated_at", "live?") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "pink"], ["year", 2019], ["band_id", 1], ["created_at", "2021-01-06 00:57:13.766996"], ["updated_at", "2021-01-06 00:57:13.766996"], ["live?", true]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (6.1ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:15
+Redirected to http://localhost:3000/albums/2
+Completed 302 Found in 22ms (ActiveRecord: 13.3ms)
+
+
+Started GET "/albums/2" for ::1 at 2021-01-05 16:57:13 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAlbum Load (21.5ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (1.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (9.9ms)
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 239ms (Views: 211.9ms | ActiveRecord: 24.0ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:57:26 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"pink", "year"=>"2021", "live?"=>"true"}, "authenticity_token"=>"HQ6LPI/Q27dQHqFOMw3jEdFS72d9ID4tz21MQ2WDJMIsoUKssvFB/cwolhjWMqlBB0tJeZpbTNh9OTnPvoH32w=="}
+  [1m[35m (2.9ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (0.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mAlbum Create (3.4ms)[0m  [1m[32mINSERT INTO "albums" ("title", "year", "band_id", "created_at", "updated_at", "live?") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "pink"], ["year", 2021], ["band_id", 1], ["created_at", "2021-01-06 00:57:26.568740"], ["updated_at", "2021-01-06 00:57:26.568740"], ["live?", true]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (8.9ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:15
+Redirected to http://localhost:3000/albums/3
+Completed 302 Found in 27ms (ActiveRecord: 16.1ms)
+
+
+Started GET "/albums/3" for ::1 at 2021-01-05 16:57:26 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAlbum Load (0.7ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (3.8ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 141ms (Views: 135.8ms | ActiveRecord: 1.8ms)
+
+
+Started GET "/albums/" for ::1 at 2021-01-05 16:57:32 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/albums"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/albums/" for ::1 at 2021-01-05 16:57:35 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/albums"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started GET "/albums/2" for ::1 at 2021-01-05 16:57:40 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"2"}
+  [1m[36mAlbum Load (2.9ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 2], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (5.3ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (10.1ms)
+  [1m[36mUser Load (6.7ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 205ms (Views: 185.7ms | ActiveRecord: 14.9ms)
+
+
+Started GET "/albums/1" for ::1 at 2021-01-05 16:57:43 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"1"}
+  [1m[36mAlbum Load (3.6ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (1.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (9.2ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 184ms (Views: 174.7ms | ActiveRecord: 5.9ms)
+
+
+Started GET "/bands/1/albums/new" for ::1 at 2021-01-05 16:57:48 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"1"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (5.8ms)
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 226ms (Views: 223.3ms | ActiveRecord: 0.6ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:58:11 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"green velvet", "year"=>"2020", "live?"=>"false"}, "authenticity_token"=>"hgzcoTr0e/dtFm1l4tXy+O6K92EMH0VkKsuGCDlM17C3oxUxB9XhvfEgWjMH6rioOJNRf+tkN5GYn/OE4k4EqQ=="}
+  [1m[35m (4.5ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (3.9ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (9.0ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (1.4ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 172ms (Views: 143.5ms | ActiveRecord: 17.9ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:58:19 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"", "title"=>"green velvet", "year"=>"2020", "live?"=>"true"}, "authenticity_token"=>"I4fzBRxvOrTrZ2iyWzLV1NktWlgInQnpfXGRXMbqUDESKDqVIU6g/ndRX+S+DZ+EDzT8Ru/mexzPJeTQHeiDKA=="}
+  [1m[35m (0.4ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (3.3ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.3ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 167ms (Views: 154.4ms | ActiveRecord: 4.0ms)
+
+
+Started GET "/albums" for ::1 at 2021-01-05 16:58:22 -0800
+  
+ActionController::RoutingError (No route matches [GET] "/albums"):
+  
+actionpack (5.2.4.4) lib/action_dispatch/middleware/debug_exceptions.rb:65:in `call'
+web-console (3.7.0) lib/web_console/middleware.rb:135:in `call_app'
+web-console (3.7.0) lib/web_console/middleware.rb:30:in `block in call'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `catch'
+web-console (3.7.0) lib/web_console/middleware.rb:20:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/show_exceptions.rb:33:in `call'
+railties (5.2.4.4) lib/rails/rack/logger.rb:38:in `call_app'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `block in call'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `block in tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:28:in `tagged'
+activesupport (5.2.4.4) lib/active_support/tagged_logging.rb:71:in `tagged'
+railties (5.2.4.4) lib/rails/rack/logger.rb:26:in `call'
+sprockets-rails (3.2.2) lib/sprockets/rails/quiet_assets.rb:13:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/remote_ip.rb:81:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/request_id.rb:27:in `call'
+rack (2.2.3) lib/rack/method_override.rb:24:in `call'
+rack (2.2.3) lib/rack/runtime.rb:22:in `call'
+activesupport (5.2.4.4) lib/active_support/cache/strategy/local_cache_middleware.rb:29:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/executor.rb:14:in `call'
+actionpack (5.2.4.4) lib/action_dispatch/middleware/static.rb:127:in `call'
+rack (2.2.3) lib/rack/sendfile.rb:110:in `call'
+railties (5.2.4.4) lib/rails/engine.rb:524:in `call'
+puma (3.12.6) lib/puma/configuration.rb:227:in `call'
+puma (3.12.6) lib/puma/server.rb:706:in `handle_request'
+puma (3.12.6) lib/puma/server.rb:476:in `process_client'
+puma (3.12.6) lib/puma/server.rb:334:in `block in run'
+puma (3.12.6) lib/puma/thread_pool.rb:135:in `block in spawn_thread'
+Started POST "/albums" for ::1 at 2021-01-05 16:58:29 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"green velvet", "year"=>"2020", "live?"=>"true"}, "authenticity_token"=>"hgzcoTr0e/dtFm1l4tXy+O6K92EMH0VkKsuGCDlM17C3oxUxB9XhvfEgWjMH6rioOJNRf+tkN5GYn/OE4k4EqQ=="}
+  [1m[35m (3.0ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (3.0ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mAlbum Create (1.6ms)[0m  [1m[32mINSERT INTO "albums" ("title", "year", "band_id", "created_at", "updated_at", "live?") VALUES ($1, $2, $3, $4, $5, $6) RETURNING "id"[0m  [["title", "green velvet"], ["year", 2020], ["band_id", 1], ["created_at", "2021-01-06 00:58:29.136640"], ["updated_at", "2021-01-06 00:58:29.136640"], ["live?", true]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (1.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/controllers/albums_controller.rb:15
+Redirected to http://localhost:3000/albums/4
+Completed 302 Found in 19ms (ActiveRecord: 8.8ms)
+
+
+Started GET "/albums/4" for ::1 at 2021-01-05 16:58:29 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"4"}
+  [1m[36mAlbum Load (6.4ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 4], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (2.5ms)
+  [1m[36mUser Load (1.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 184ms (Views: 169.1ms | ActiveRecord: 8.8ms)
+
+
+Started GET "/albums/3" for ::1 at 2021-01-05 16:58:36 -0800
+Processing by AlbumsController#show as HTML
+  Parameters: {"id"=>"3"}
+  [1m[36mAlbum Load (0.9ms)[0m  [1m[34mSELECT  "albums".* FROM "albums" WHERE "albums"."id" = $1 LIMIT $2[0m  [["id", 3], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:24
+  Rendering albums/show.html.erb within layouts/application
+  [1m[36mBand Load (0.7ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/views/albums/show.html.erb:5
+  Rendered albums/show.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 200ms (Views: 196.0ms | ActiveRecord: 2.0ms)
+
+
+Started DELETE "/session" for ::1 at 2021-01-05 16:59:30 -0800
+Processing by SessionsController#destroy as HTML
+  Parameters: {"authenticity_token"=>"jLU5zUkj+R4wipPrRe0ByIIGCZMJr227dQkinJzGvB+9GvBddAJjVKy8pL2g0kuYVB+vje7UH07HXVcQR8RvBg=="}
+  [1m[36mUser Load (0.6ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "nHGR78Lh6bfe7atZRe026g"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[35m (0.2ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:21
+  [1m[36mUser Exists (7.5ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "edwin1"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+  [1m[36mUser Exists (16.1ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "vrZ8_alDnL0dRZHWdW_1xQ"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+  [1m[36mUser Update (2.3ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "vrZ8_alDnL0dRZHWdW_1xQ"], ["updated_at", "2021-01-06 00:59:30.673301"], ["id", 6]]
+  ↳ app/models/user.rb:21
+  [1m[35m (12.3ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:21
+Redirected to http://localhost:3000/session/new
+Completed 302 Found in 54ms (ActiveRecord: 38.9ms)
+
+
+Started GET "/session/new" for ::1 at 2021-01-05 16:59:30 -0800
+Processing by SessionsController#new as HTML
+  Rendering sessions/new.html.erb within layouts/application
+  Rendered sessions/new.html.erb within layouts/application (0.7ms)
+  [1m[36mUser Load (0.8ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" IS NULL LIMIT $1[0m  [["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 121ms (Views: 117.8ms | ActiveRecord: 0.8ms)
+
+
+Started POST "/session" for ::1 at 2021-01-05 16:59:34 -0800
+Processing by SessionsController#create as HTML
+  Parameters: {"authenticity_token"=>"L+SxlY9Q0qq1hJRqiZFB9z9rR2U10iE/ZrTJhuvYY3QeS3gFsnFI4Cmyozxsrgun6XLhe9KpU8rU4LwKMNqwbQ==", "user"=>{"email"=>"edwin1", "password"=>"[FILTERED]"}}
+  [1m[36mUser Load (2.0ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."email" = $1 LIMIT $2[0m  [["email", "edwin1"], ["LIMIT", 1]]
+  ↳ app/models/user.rb:31
+  [1m[35m (0.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/models/user.rb:21
+  [1m[36mUser Exists (3.0ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."email" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["email", "edwin1"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+  [1m[36mUser Exists (0.8ms)[0m  [1m[34mSELECT  1 AS one FROM "users" WHERE "users"."session_token" = $1 AND "users"."id" != $2 LIMIT $3[0m  [["session_token", "TBrP_lu02wJVi4rIHAyRNQ"], ["id", 6], ["LIMIT", 1]]
+  ↳ app/models/user.rb:21
+  [1m[36mUser Update (0.9ms)[0m  [1m[33mUPDATE "users" SET "session_token" = $1, "updated_at" = $2 WHERE "users"."id" = $3[0m  [["session_token", "TBrP_lu02wJVi4rIHAyRNQ"], ["updated_at", "2021-01-06 00:59:34.817794"], ["id", 6]]
+  ↳ app/models/user.rb:21
+  [1m[35m (2.6ms)[0m  [1m[35mCOMMIT[0m
+  ↳ app/models/user.rb:21
+Redirected to http://localhost:3000/users/6
+Completed 302 Found in 399ms (ActiveRecord: 9.9ms)
+
+
+Started GET "/users/6" for ::1 at 2021-01-05 16:59:34 -0800
+Processing by UsersController#show as HTML
+  Parameters: {"id"=>"6"}
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TBrP_lu02wJVi4rIHAyRNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+  [1m[36mUser Load (0.5ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."id" = $1 LIMIT $2[0m  [["id", 6], ["LIMIT", 1]]
+  ↳ app/controllers/users_controller.rb:10
+  Rendering users/show.html.erb within layouts/application
+  Rendered users/show.html.erb within layouts/application (0.7ms)
+Completed 200 OK in 185ms (Views: 127.6ms | ActiveRecord: 1.0ms)
+
+
+Started GET "/bands/1/albums/new" for ::1 at 2021-01-05 16:59:42 -0800
+Processing by AlbumsController#new as HTML
+  Parameters: {"band_id"=>"1"}
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (2.2ms)
+  [1m[36mUser Load (0.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TBrP_lu02wJVi4rIHAyRNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 153ms (Views: 150.8ms | ActiveRecord: 0.4ms)
+
+
+Started POST "/albums" for ::1 at 2021-01-05 16:59:53 -0800
+Processing by AlbumsController#create as HTML
+  Parameters: {"album"=>{"band_id"=>"1", "title"=>"gadofubspf", "year"=>"2020", "live?"=>"false"}, "authenticity_token"=>"yqOLezoPWAli9kj9PbGVLh1GdKJXOWFqGD8sUTJ5DZv7DELrBy7CQ/7Af6vYjt9+y1/SvLBCE5+qa1nd6Xvegg=="}
+  [1m[35m (1.7ms)[0m  [1m[35mBEGIN[0m
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[36mBand Load (6.6ms)[0m  [1m[34mSELECT  "bands".* FROM "bands" WHERE "bands"."id" = $1 LIMIT $2[0m  [["id", 1], ["LIMIT", 1]]
+  ↳ app/controllers/albums_controller.rb:15
+  [1m[35m (0.6ms)[0m  [1m[31mROLLBACK[0m
+  ↳ app/controllers/albums_controller.rb:15
+  Rendering albums/new.html.erb within layouts/application
+  Rendered albums/new.html.erb within layouts/application (3.7ms)
+  [1m[36mUser Load (1.4ms)[0m  [1m[34mSELECT  "users".* FROM "users" WHERE "users"."session_token" = $1 LIMIT $2[0m  [["session_token", "TBrP_lu02wJVi4rIHAyRNQ"], ["LIMIT", 1]]
+  ↳ app/controllers/application_controller.rb:9
+Completed 200 OK in 183ms (Views: 160.1ms | ActiveRecord: 10.3ms)
+
+
