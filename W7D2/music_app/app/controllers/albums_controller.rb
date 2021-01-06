@@ -1,19 +1,28 @@
 class AlbumsController < ApplicationController
 
     def new
-        @album = Album.where(band_id: params[:band_id]).new
+        # debugger
+        @album = Album.new
 
         render :new
     end
 
     def create
         @album = Album.new(album_params)
+         # @album.band_id = params[:band_id]
+        # debugger 
 
         if @album.save
-            redirect_to album_url
+            redirect_to album_url(@album)
         else
-
+            flash.now[:errors] = ['Not Valid']
+            render :new        
         end
+    end
+
+    def show
+        @album = Album.find(params[:id])
+        render :show
     end
 
 

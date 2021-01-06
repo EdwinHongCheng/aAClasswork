@@ -1,7 +1,9 @@
 <section class="page">
+   
     <h1>New Album</h1>
 
     <form action="<%= albums_url %>" method="post">
+    <input type="hidden" name="album[band_id]" value = "<%= params[:band_id]%>">
 
     <input type="hidden" name="authenticity_token" value="<%= form_authenticity_token %>">
 
