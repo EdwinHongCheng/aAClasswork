@@ -1,0 +1,39 @@
+// Use the gear_dropdown.png screenshot as a style guide
+
+// Phase 3 Gear Drop Down
+
+
+#gear-dropdown-btn{
+	position: relative;
+	// padding: 7px 9px;
+}
+
+.gear-dropdown {
+	position: absolute;
+	top: 30px;
+  right: 0;
+  display: none;
+  
+  background-color: #fff;
+  padding: 10px;
+	border: 1px solid $light-gray;
+	border-radius: 5px;
+  
+  width: 225px;
+  
+  z-index: 1;
+  
+  font-family: $sans-serif;
+  font-weight: initial;
+
+  .help li{
+    margin: 5px 0;
+  }
+
+	box-shadow: -1px 4px 6px 1px rgba(0,0,0,0.09);
+
+}
+
+#gear-dropdown-btn:hover .gear-dropdown{
+	display: block;
+}
