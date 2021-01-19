@@ -152,5 +152,50 @@ function curriedSum(numArgs) {
 // 4.1. apply Version
 
 Function.prototype.curry = function(numArgs) {
-    
+    let args = [];
+    let that = this;
+
+    function _curry(arg){
+        args.push(arg);
+
+        if (args.length === numArgs){
+            return that.apply(that, args);
+        }else{
+            return _curry;
+        }
+
+    }
+    return _curry;
 }
+
+
+//4.2 spread operator version
+
+Function.prototype.curry = function (numArgs) {
+    let args = [];
+    let that = this;
+
+    function _curry(...arg) {
+        for(let i = 0; i < arg.length; i++){
+            args.push(arg[i])
+        }
+
+        if (args.length === numArgs) {
+            return that(...args);
+        } else {
+            return _curry;
+        }
+
+    }
+    return _curry;
+}
+
+
+function tripleAdd(num1, num2, num3){
+    return num1 + num2 + num3;
+}
+
+let func = tripleAdd.curry(3);
+console.log(func(1,2));
+// console.log(func(2));
+console.log(func(3));
