@@ -4,11 +4,24 @@ import React from 'react';
 class Clock extends React.Component {
 
     constructor(props) {
+
         super(props);
 
+        let currentDate = new Date();
+
         this.state = {
-            date: "Hello There"
+            date: currentDate
         }
+
+        this.tick = this.tick.bind(this);
+    }
+
+    tick(){
+        this.setState( { date: new Date() } )
+    }
+
+    componentDidMount(){
+        setInterval(this.tick, 1000)
     }
 
     
@@ -16,7 +29,7 @@ class Clock extends React.Component {
         return (
             <h1>
                 <div>Cool Clock B)</div>
-                {/* <div>`${this.state}`</div> */}
+                <div>Current Date: {this.state.date.toString()}</div>
             </h1>
         )
     }
