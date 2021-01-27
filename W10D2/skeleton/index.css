@@ -29,7 +29,7 @@ ul {
   clear: both;
 }
 
-h1 {
+#clock-header {
   font-family: Potta One;
   background-color: orange;
   border: 3px solid black;
@@ -48,6 +48,19 @@ h1 {
 }
 
 #coolClock {
+  display: flex;
+  justify-content: center;
+}
+
+#weather-header {
+  font-family: Potta One;
+  background-color: lightblue;
+  border: 3px solid black;
+  margin: 10px 100px;
+  padding: 10px;
+}
+
+#cool-weather {
   display: flex;
   justify-content: center;
 }

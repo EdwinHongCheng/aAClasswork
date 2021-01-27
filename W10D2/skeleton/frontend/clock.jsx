@@ -48,7 +48,7 @@ class Clock extends React.Component {
         let seconds = this.state.date.getSeconds();
 
         return (
-            <h1>
+            <h1 id="clock-header">
                 <div id="coolClock">Cool Clock B)</div>
                 <div id="time">
                     <div>Current Time: </div>
