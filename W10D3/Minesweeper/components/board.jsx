@@ -36,7 +36,7 @@ class Board extends React.Component {
                 <Tile
                     tile={tile}
                     updateGame={this.props.updateGame}
-                    key={i * j} />
+                    key={i * board.gridSize + j} />
             );
         });
     }
