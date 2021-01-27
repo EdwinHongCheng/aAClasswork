@@ -41,7 +41,10 @@ class Clock extends React.Component {
         return (
             <h1>
                 <div>Cool Clock B)</div>
-                <div>Current Time: {hours}:{minutes}:{seconds} PDT</div>
+                <div id="time">
+                    <div>Current Time: </div>
+                    <div>{hours}:{minutes}:{seconds} PDT</div>
+                </div>
 
                 <button onClick={() => this.componentWillUnmount()}>Stop Time</button>
                 <br/>
