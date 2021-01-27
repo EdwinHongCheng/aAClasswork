@@ -6,9 +6,9 @@ class Game extends React.Component {
     constructor(props) {
         super(props)
 
-        const newBoard = new Minesweeper.Board(3, 2);
+        const board = new Minesweeper.Board(9, 10);
         
-        this.state = { board: newBoard };
+        this.state = { board: board };
 
         this.restartGame = this.restartGame.bind(this);
         this.updateGame = this.updateGame.bind(this)
@@ -16,7 +16,7 @@ class Game extends React.Component {
 
     restartGame() {
         const board = new Minesweeper.Board(9, 10);
-        this.setState({ board: newBoard });
+        this.setState({ board: board });
     }
 
 
@@ -49,7 +49,7 @@ class Game extends React.Component {
 
         return (
             <div>
-                {/* <h1>Minesweeper</h1> */}
+             
                 {modal}
                 <Board board={this.state.board} updateGame={this.updateGame}/>
             </div>
