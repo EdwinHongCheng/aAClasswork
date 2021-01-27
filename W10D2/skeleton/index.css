@@ -31,9 +31,23 @@ ul {
 
 h1 {
   font-family: Potta One;
+  background-color: orange;
+  border: 3px solid black;
+  margin: 10px 100px;
+  padding: 10px;
 }
 
 #time {
   display: flex;
   justify-content: space-between;
+}
+
+#date {
+  display: flex;
+  justify-content: space-between;
+}
+
+#coolClock {
+  display: flex;
+  justify-content: center;
 }
