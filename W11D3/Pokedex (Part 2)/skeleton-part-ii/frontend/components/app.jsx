@@ -5,10 +5,12 @@ import PokemonDetailContainer from './pokemon/pokemon_detail_container';
 
 // implicit return
 const App = () => (
-    <div>
-      <Route path="/"            component={PokemonIndexContainer}  />
-      <Route path="/pokemon/:id" component={() => <p>woo</p>} /> 
-    </div>
+
+  <section className="pokedex">
+    <Route path="/pokemon/:id" component={PokemonDetailContainer} /> 
+    <Route path="/"            component={PokemonIndexContainer}  />
+  </section>
+  
 );
 
 export default App;

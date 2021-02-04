@@ -1,7 +1,6 @@
 import React from 'react';
 import PokemonIndexItem from './pokemon_index_item';
 
-
 class PokemonIndex extends React.Component {
 
   componentDidMount() {
@@ -17,9 +16,7 @@ class PokemonIndex extends React.Component {
     );
     
     return (
-      <section className="pokedex">
-        <ul>{pokemonItems}</ul>
-      </section>
+      <ul>{pokemonItems}</ul>
     )
   }
 }
